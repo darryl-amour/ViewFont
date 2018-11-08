@@ -12,7 +12,10 @@
     "128": "icon1.png"
   },
   "permissions": [
-    "activeTab"
+    "tabs",
+    "background",
+    "http://*/*",
+    "https://*/*"
   ],
   "content_scripts": [
     {
