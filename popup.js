@@ -6,74 +6,41 @@ xhttp.send();
 
 function fontSelection (){
   if (xhttp.readyState == 4 && xhttp.status == 200){
+
     var response = JSON.parse(this.responseText);
-    for (items in response) {
-      let font = response['items']
-      let fontFamily = font.map(el => {
-        return ([el['family'], el['files']['regular']]);
-      })
-      console.log(fontFamily)
-    }
-    // console.log(this.responseText);
+    let ul = document.createElement('ul');
+    ul.setAttribute('id', 'fontList')
+    document.body.appendChild(ul);
+
+    response.items.forEach(el => {
+      let li = document.createElement('li');
+      li.setAttribute('class', 'fontLi')
+      // let liText = document.createTextNode(el['family'])
+      // li.appendChild(liText);
+      document.getElementById('fontList').appendChild(li);
+
+      let regex = el['family'].replace(/\s/g, "+")
+      let a = document.createElement('a');
+      a.setAttribute('href', 'https://fonts.google.com/specimen/' + regex);
+      a.setAttribute('class', 'aTag')
+      a.innerHTML = el['family']
+      li.appendChild(a);
+    })
   }
 }
 
-document.getElementById('selectFont').addEventListener('click', fontSelection);
 
-document.addEventListener('DOMContentLoaded', )
+window.addEventListener('click', function (e){
+  if (e.target.href !== undefined){
+    chrome.tabs.create({url: e.target.href})
+  }
+})
 
-// const popupController = function (){
-//   this.button = document.getElementById('selectFont')
-//   this.addListener();
+// function injectTheScript() {
+//   chrome.tabs.query({currentWindow: true, active: true}, function (tabs){
+//   var activeTab = tabs[0];
+//   chrome.tabs.sendMessage(activeTab.id, {file: "contentscript.js"});
+//  });
 // }
 
-popupController.prototype.addListener = function (){
-  this.button.addEventListener('click', function (){
-    let fonts = document.createElement('div');
-    fonts.setAttribute('class', 'fontList');
-    
-    let xhttp = new XMLHttpRequest()
-  
-    xhttp.onreadystatechange = fontSelection
-    xhttp.open('GET', 'https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyA7Yo_g1VIA1pO-RVyGFflscFgzI78yhD0', true);
-    xhttp.send();
-
-  });
-}
-
-function fontSelection (){
-  if (xhttp.readyState == 4 && xhttp.status == 200){
-    var response = JSON.parse(this.responseText);
-    for (items in response) {
-      let font = response['items']
-      let fontFamily = font.map(el => {
-        return ([el['family'], el['files']['regular']]);
-      })
-      console.log(fontFamily)
-    }
-    // console.log(this.responseText);
-  }
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-  window.PC = new popupController();
-  // let xhttp = new XMLHttpRequest()
-  
-  // xhttp.onreadystatechange = fontSelection
-  // xhttp.open('GET', 'https://www.googleapis.com/webfonts/v1/webfonts?key=AIzaSyA7Yo_g1VIA1pO-RVyGFflscFgzI78yhD0', true);
-  // xhttp.send();
-
-  // function fontSelection (){
-  //   if (xhttp.readyState == 4 && xhttp.status == 200){
-  //     var response = JSON.parse(this.responseText);
-  //     for (items in response) {
-  //       let font = response['items']
-  //       let fontFamily = font.map(el => {
-  //         return ([el['family'], el['files']['regular']]);
-  //       })
-  //       console.log(fontFamily)
-  //     }
-  //     // console.log(this.responseText);
-  //   }
-  // }
-})
+// document.getElementsByClassName('aTag').addEventListener('click', injectTheScript)

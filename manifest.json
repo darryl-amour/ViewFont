@@ -10,5 +10,15 @@
   },
   "icons": {
     "128": "icon1.png"
-  }
+  },
+  "permissions": [
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "css": ["contentscript.css"],
+      "js": ["contentscript.js"],
+      "matches": ["*"]     
+    }
+  ]
 }
