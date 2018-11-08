@@ -1,0 +1,30 @@
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+#popupWindow {
+  background-color: #FFFFFF;
+  width: 350px;
+  height: 400px;
+}
+
+#fontName {
+  font-size: 20px;
+}
+
+.popupMiddle {
+  color: #757575;
+  font-size: 
+}
+
+#copyButton {
+  color: #FA5759;
+  background-color: #FAFAFA;
+  border: none;
+  text-align: center;
+  border-radius: 50px;
+  padding: 5px 5px;
+  font-size: 14px;
+  float: right;
+  margin-right: 10px;f
+}
