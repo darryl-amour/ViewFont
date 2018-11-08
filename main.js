@@ -1,7 +1,9 @@
 /*
  *
  */
-function ViewFont() {}
+function ViewFont() {
+  this.currentEvent;
+}
 
 /*
  *
@@ -14,7 +16,10 @@ ViewFont.prototype.findInPage = function findInPage() {
  *
 */
 ViewFont.prototype.copyToClipBoard = function copyToClipBoard() {
-
+  //getElementById -> this.currentEvent.target
+  let currentFont = this.currentEvent.target;
+  currentFont.select();
+  document.execCommand('copy');
 };
 
 /*
@@ -76,3 +81,5 @@ document.body.addEventListener('mouseup', function (event) {
         console.log(JSON.stringify(event));
     }
 });
+
+// document.getElementById('copyButton').addEventListener('click', ViewFont.copyToClipBoard)
