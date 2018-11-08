@@ -1,12 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"></html>
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>ViewFont</title>
       <link rel="stylesheet" type="text/css" href="popup.css">
     </head>
     <body>
-      <p>Pick Font From Page</p><hr>
-      <p>Copied Font Name</p><hr>
-      <button type="submit" id="selectFont" value="selectFont">Change My Font</button><hr>
-     <script src="popup.js"></script>
+      <div display="flex" id='popupWindow'>
+        <p>ViewFont</p><hr>
+        <select class="fontpicker">Pick Font Name</select><br>
+        <button type="submit" id="selectFont" class="button">Change My Font</button><hr>
+        <p id='fontName'> Font Name</p> 
+        <button id="copyButton" class="button" value="copy">Copy</button>
+        <hr>
+        <p id="fontfamily">Font Family</p>
+        <p id="fontsize">Font Size</p>
+        <p id="fontweight">Weight</p>
+      </div>
+      <script src="popup.js"></script>
     </body>
   </html>

@@ -7,13 +7,6 @@ function ViewFont() {
 
 /*
  *
- */
-ViewFont.prototype.findInPage = function findInPage() {
-
-};
-
-/*
- *
 */
 ViewFont.prototype.copyToClipBoard = function copyToClipBoard() {
   //getElementById -> this.currentEvent.target
@@ -46,9 +39,12 @@ ViewFont.prototype.popUpWindow = function popUpWindow(event) {
     style = elementOnMouseOver.style.fontFamily || getComputedStyle(elementOnMouseOver)['font-family'];
     weight = elementOnMouseOver.style.weight || getComputedStyle(elementOnMouseOver)['fontWeight'];
     size = elementOnMouseOver.style.size || getComputedStyle(elementOnMouseOver)['fontSize'];
-
-    //console.log(`style-weight-size: ${style}-${weight}-${size}`);
+    chrome.runtime.sendMessage({style: style, weight: weight, size:size}, function(response) {
+      console.log(`Chrome response(ViewFont.popupWindow): ${JSON.stringify(response)}`);
+    });
+    console.log(`${style}-${weight}-${size}`);
   }
+
 };
 
 /*
