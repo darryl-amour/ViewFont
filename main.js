@@ -39,10 +39,11 @@ ViewFont.prototype.popUpWindow = function popUpWindow(event) {
     style = elementOnMouseOver.style.fontFamily || getComputedStyle(elementOnMouseOver)['font-family'];
     weight = elementOnMouseOver.style.weight || getComputedStyle(elementOnMouseOver)['fontWeight'];
     size = elementOnMouseOver.style.size || getComputedStyle(elementOnMouseOver)['fontSize'];
-    chrome.runtime.sendMessage({style: style, weight: weight, size:size}, function(response) {
-      console.log(`Chrome response(ViewFont.popupWindow): ${JSON.stringify(response)}`);
-    });
-    console.log(`${style}-${weight}-${size}`);
+    elementOnMouseOver.title = `Font Family: ${style},\n\n Font Weight: ${weight},\n\n Font Size: ${size}`;
+    //chrome.runtime.sendMessage({style: style, weight: weight, size:size}, function(response) {
+    //  console.log(`Chrome response(ViewFont.popupWindow): ${JSON.stringify(response)}`);
+    //});
+    //console.log(`${style}-${weight}-${size}`);
   }
 
 };
