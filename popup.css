@@ -1,12 +1,42 @@
 body {
-  font-family: monospace;
+  font-family: Arial
   margin: 5px 10px 10px;
   width: 300px;
+
   height: 100%;
   background-color: #FAFAFA;
+
+
 }
 
-p {
+body {
+  font-family: Verdana;
+}
+
+#popupWindow {
+  background-color: lightgrey;
+  width: 350px;
+  height: 400px;
+  margin: 15px;
+  padding: 8px;
+  text-align: center;
+  justify-content: center;
+}
+
+#fontName {
+  font-size: 15px;
+}
+
+#fontfamily #fontsize #fontweight {
+  color: #757575;
+  font-size: 14px;
+}
+
+.button {
+  width: 150px;
+  background-color: grey;
+  border: black;
+  border-style: outset
   text-align: center;
   font-size: 17px;
   color: #FF5252;

@@ -142,6 +142,3 @@ window.addEventListener('click', function (e){
     chrome.tabs.create({url: e.target.href})
   }
 })
-
-
-

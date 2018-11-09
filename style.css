@@ -5,7 +5,7 @@ body {
 #popupWindow {
   background-color: #FFFFFF;
   width: 350px;
-  height: 400px;
+  height: 100%;
 }
 
 #fontName {
@@ -15,7 +15,7 @@ body {
 .popupMiddle {
   color: #757575;
   font-size: 
-}
+}.
 
 #copyButton {
   color: #FA5759;

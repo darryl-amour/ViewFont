@@ -8,6 +8,13 @@
     "default_icon": "icon1.png",
     "default_popup": "popup.html"
   },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["./main.js", "./popup.js"],
+      "css": ["popup.css", "style.css"]
+    }
+  ],
   "icons": {
     "128": "icon1.png"
   },
