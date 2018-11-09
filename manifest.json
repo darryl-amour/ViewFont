@@ -1,11 +1,11 @@
 {
   "name": "ViewFont",
-  "version": "1.0.0",
+  "version": "1.5.0",
   "description": "View the Font, Get the Font!",
   "manifest_version": 2,
   "browser_action": {
     "default_title": "ViewFont",
-    "default_icon": "icon1.png",
+    "default_icon": "icon2.png",
     "default_popup": "popup.html"
   },
   "content_scripts": [
@@ -16,19 +16,11 @@
     }
   ],
   "icons": {
-    "128": "icon1.png"
+    "128": "icon2.png"
   },
   "permissions": [
     "tabs",
     "background",
-    "http://*/*",
-    "https://*/*"
-  ],
-  "content_scripts": [
-    {
-      "css": ["contentscript.css"],
-      "js": ["contentscript.js"],
-      "matches": ["*"]     
-    }
+    "<all_urls>"
   ]
 }
