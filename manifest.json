@@ -17,5 +17,18 @@
   ],
   "icons": {
     "128": "icon1.png"
-  }
+  },
+  "permissions": [
+    "tabs",
+    "background",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "content_scripts": [
+    {
+      "css": ["contentscript.css"],
+      "js": ["contentscript.js"],
+      "matches": ["*"]     
+    }
+  ]
 }
